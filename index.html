@@ -4,17 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>My Portfolio</title>
-  <link rel="stylesheet" href="css/style.css" />
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css"/>
 
+  <!-- AOS + GSAP + Typed -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 </head>
 <body>
 
   <!-- Header -->
   <header class="glass-nav">
-    <div class="logo">MyPortfolio</div>
+    <div class="logo">T SARADHI</div>
     <nav class="nav-links" id="navMenu">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
@@ -26,7 +31,6 @@
       <i class="fas fa-bars"></i>
     </div>
   </header>
-  
 
   <!-- Landing Section -->
   <section class="home" id="home">
@@ -42,8 +46,52 @@
     </div>
   </section>
 
-  <!-- AOS & Script -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script src="js/script.js"></script>
+  <!-- Script -->
+  <script>
+    // AOS Init
+    AOS.init({
+      duration: 800,
+      once: true
+    });
+
+    // Typed.js Init
+    const typed = new Typed('#typed-role', {
+      strings: ['Frontend Developer', 'React Developer', 'Web Designer'],
+      typeSpeed: 50,
+      backSpeed: 25,
+      loop: true
+    });
+
+    // Hamburger toggle
+    document.getElementById("hamburger").addEventListener("click", () => {
+      document.getElementById("navMenu").classList.toggle("active");
+    });
+  </script>
+
+  <style>
+    /* Simple style for hamburger menu */
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+    .hamburger {
+      display: none;
+      cursor: pointer;
+    }
+    @media(max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: #111;
+        padding: 1rem;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+      .hamburger {
+        display: block;
+      }
+    }
+  </style>
 </body>
 </html>
